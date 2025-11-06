@@ -2,6 +2,8 @@ package dao;
 
 import model.product;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDao {
     private final Connection conn;
@@ -33,4 +35,27 @@ public class ProductDao {
             return false;
         }
     }
+    public List<product> getAllProducts() {
+    List<product> list = new ArrayList<>();
+    String sql = "SELECT * FROM product";
+    try (PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+        while (rs.next()) {
+            product p = new product();
+            p.setProductId(rs.getInt("product_id"));
+            p.setCategoryId(rs.getInt("category_id"));
+            p.setProductName(rs.getString("product_name"));
+            p.setDescription(rs.getString("description"));
+            p.setPrice(rs.getBigDecimal("price"));
+            p.setStock(rs.getInt("stock"));
+            p.setImageUrl(rs.getString("image_url"));
+            p.setStatus(rs.getString("status"));
+            list.add(p);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return list;
+}
+
 }
