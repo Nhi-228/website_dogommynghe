@@ -41,10 +41,10 @@ public class login extends HttpServlet {
 
                 // Nếu là admin → chuyển đến trang admin
                 if ("admin".equalsIgnoreCase(user.getRole())) {
-                    response.sendRedirect("admin/dashboard.jsp");
+                    response.sendRedirect("admin.jsp");
                 } else {
                     // Ngược lại → vào trang chủ
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("Home.jsp");
                 }
 
             } else {

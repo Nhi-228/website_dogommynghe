@@ -17,7 +17,7 @@ public class Connect {
         Connection conn = null;
         try {
             // Tên database bạn tạo trong phpMyAdmin
-            String url = "jdbc:mysql://localhost:3306/thucong_store";
+           String url = "jdbc:mysql://localhost:3306/thucong_store?useSSL=false&serverTimezone=UTC";
             String username = "root";  // Mặc định của XAMPP là root
             String password = "";      // Mặc định là rỗng
 

@@ -3,19 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Web/DoGomMyNghe/web/index.html</file>
+            <file>file:/D:/Web/DoGomMyNghe/web/contact.jsp</file>
+            <file>file:/D:/Web/DoGomMyNghe/src/java/controller/AddProductServlet.java</file>
+            <file>file:/D:/Web/DoGomMyNghe/web/addCategory.jsp</file>
+            <file>file:/D:/Web/DoGomMyNghe/src/java/model/product.java</file>
             <file>file:/D:/Web/DoGomMyNghe/src/java/dao/Connect.java</file>
-            <file>file:/D:/Web/DoGomMyNghe/src/java/dao/UserDao.java</file>
-            <file>file:/D:/Web/DoGomMyNghe/src/java/controller/register.java</file>
-            <file>file:/D:/Web/DoGomMyNghe/src/java/controller/resetpassword.java</file>
-            <file>file:/D:/Web/DoGomMyNghe/web/index.jsp</file>
-            <file>file:/D:/Web/DoGomMyNghe/web/formforgetpassword.jsp</file>
-            <file>file:/D:/Web/DoGomMyNghe/web/formdangnhap.jsp</file>
-            <file>file:/D:/Web/DoGomMyNghe/web/formdangki.jsp</file>
-            <file>file:/D:/Web/DoGomMyNghe/src/java/model/User.java</file>
-            <file>file:/D:/Web/DoGomMyNghe/src/java/controller/login.java</file>
+            <file>file:/D:/Web/DoGomMyNghe/src/java/dao/ProductDao.java</file>
             <file>file:/D:/Web/DoGomMyNghe/web/Home.jsp</file>
-            <file>file:/D:/Web/DoGomMyNghe/web/includes/header.jsp</file>
+            <file>file:/D:/Web/DoGomMyNghe/web/admin.jsp</file>
+            <file>file:/D:/Web/DoGomMyNghe/web/CSS/styles.css</file>
+            <file>file:/D:/Web/DoGomMyNghe/web/addProduct.jsp</file>
         </group>
     </open-files>
 </project-private>

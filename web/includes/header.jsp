@@ -53,7 +53,7 @@
               <i class="bi bi-person-circle fs-5 me-1"></i> Cá nhân
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
-              <li><a class="dropdown-item" href="information.jsp"><i class="bi bi-info-circle me-2 text-primary"></i>Thông tin cá nhân</a></li>
+              <li><a class="dropdown-item" href="profile"><i class="bi bi-info-circle me-2 text-primary"></i>Thông tin cá nhân</a></li>
               <li><a class="dropdown-item" href="changePassword.jsp"><i class="bi bi-shield-lock me-2 text-warning"></i>Đổi mật khẩu</a></li>
               <li><a class="dropdown-item" href="history.jsp"><i class="bi bi-clock-history me-2 text-success"></i>Lịch sử mua hàng</a></li>
               <li><hr class="dropdown-divider"></li>
