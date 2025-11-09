@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            background: linear-gradient(135deg, #D8E2DC, #A3D9C9); /* kem - xanh ngọc */
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,22 +19,23 @@
 
         .container {
             width: 420px;
-            background-color: #fff;
+            background-color: #fff8f0; /* tông kem nhẹ */
             padding: 35px 40px;
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e4d6c1;
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 18px;
+            color: #4a4a4a;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             margin-bottom: 6px;
-            color: #555;
+            color: #5a5441; /* nâu nhẹ */
             font-weight: 500;
         }
 
@@ -45,44 +46,46 @@
             width: 100%;
             padding: 10px 12px;
             margin-bottom: 14px;
-            border: 1px solid #ccc;
+            border: 1px solid #b4b4b4;
             border-radius: 8px;
             font-size: 14px;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input:focus {
-            border-color: #5563DE;
+            border-color: #7db6a1; /* xanh ngọc đậm hơn */
+            box-shadow: 0 0 5px rgba(125, 182, 161, 0.5);
             outline: none;
         }
 
         .btn {
             width: 100%;
             padding: 12px;
-            background-color: #5563DE;
+            background-color: #7db6a1; /* xanh ngọc */
             color: white;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.1s;
             margin-top: 5px;
         }
 
         .btn:hover {
-            background-color: #3949AB;
+            background-color: #5fa98d;
+            transform: translateY(-1px);
         }
 
         .note {
             text-align: center;
             margin-top: 12px;
             font-size: 14px;
-            color: #555;
+            color: #5a5441;
         }
 
         .note a {
-            color: #5563DE;
+            color: #7db6a1;
             text-decoration: none;
             font-weight: bold;
         }
@@ -98,10 +101,12 @@
             padding: 10px;
             border-radius: 6px;
         }
+
         .error {
             background-color: #ffe6e6;
-            color: #d8000c;
+            color: #b71c1c;
         }
+
         .success {
             background-color: #e6ffed;
             color: #007d1b;
@@ -154,8 +159,7 @@
     <div class="container">
         <h1>Quên mật khẩu</h1>
 
-        <%-- Hiển thị message lỗi/thành công (request attribute 'error' hoặc 'message') --%>
-        <%
+        <% 
             String error = (String) request.getAttribute("error");
             String message = (String) request.getAttribute("message");
             if (error != null) {
@@ -165,8 +169,7 @@
             <div class="message success"><%= message %></div>
         <% } %>
 
-        <%-- Nếu có message query param (từ redirect), hiển thị nó --%>
-        <%
+        <% 
             String msgParam = request.getParameter("message");
             if (msgParam != null && !msgParam.trim().isEmpty()) {
                 String decoded = URLDecoder.decode(msgParam, "UTF-8");
@@ -174,14 +177,12 @@
             <div class="message success"><%= decoded %></div>
         <% } %>
 
-        <%-- Lấy step: nếu request attribute step == "reset" hoặc session có resetUsername thì hiển thị reset step --%>
         <%
             String step = (String) request.getAttribute("step");
             String sessUsername = (String) session.getAttribute("resetUsername");
             boolean showReset = "reset".equals(step) || sessUsername != null;
         %>
 
-        <%-- BƯỚC 1: Verify (username, phone, email) --%>
         <div id="verifyBox" style="<%= showReset ? "display:none;" : "" %>">
             <form action="resetpassword" method="post" onsubmit="return validateVerify();">
                 <input type="hidden" name="action" value="verify">
@@ -198,16 +199,12 @@
             </form>
         </div>
 
-        <%-- BƯỚC 2: Reset mật khẩu (chỉ hiện nếu verify thành công) --%>
         <div id="resetBox" style="<%= showReset ? "" : "display:none;" %>">
             <form action="resetpassword" method="post" onsubmit="return validateReset();">
                 <input type="hidden" name="action" value="reset">
 
-                <%-- Lấy username/phone/email từ session để gửi kèm (hoặc servlet sẽ lấy từ session) --%>
                 <%
                     String usernameSession = (String) session.getAttribute("resetUsername");
-                    String phoneSession = (String) session.getAttribute("resetPhone");
-                    String emailSession = (String) session.getAttribute("resetEmail");
                     if (usernameSession != null) {
                 %>
                     <div class="small" style="margin-bottom:10px;">
@@ -230,11 +227,8 @@
         </div>
     </div>
 
-    <%-- Nếu server trả về step=reset (forward), hiện reset box tự động bằng JS để trải nghiệm mượt hơn --%>
-    <%
-        if (showReset) {
-    %>
-    <script>showStepReset();</script>
+    <% if (showReset) { %>
+        <script>showStepReset();</script>
     <% } %>
 </body>
 </html>

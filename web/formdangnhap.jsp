@@ -14,30 +14,36 @@
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            background: linear-gradient(135deg, #D8E2DC, #A3D9C9); /* kem - xanh ngọc */
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
             width: 380px;
-            background-color: #fff;
+            background-color: #fffaf3;
             margin: 100px auto;
             padding: 35px 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0d8c3;
         }
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #5b4032; /* nâu gỗ */
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
         label {
             display: block;
             margin-bottom: 6px;
-            color: #555;
+            color: #5b5b5b;
             font-weight: 500;
         }
 
@@ -49,49 +55,52 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 14px;
-            transition: border-color 0.3s;
+            background-color: #fffdf8;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input:focus {
-            border-color: #5563DE;
+            border-color: #8BC6A9; /* xanh ngọc */
+            box-shadow: 0 0 5px rgba(139, 198, 169, 0.5);
             outline: none;
         }
 
         .btn {
             width: 100%;
             padding: 12px;
-            background-color: #5563DE;
-            color: white;
+            background-color: #8BC6A9; /* xanh ngọc */
+            color: #fff;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             margin-bottom: 10px;
         }
 
         .btn:hover {
-            background-color: #3949AB;
+            background-color: #7AB697;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background-color: #999;
+            background-color: #A97458; /* nâu gỗ nhẹ */
         }
 
         .btn-secondary:hover {
-            background-color: #777;
+            background-color: #94624C;
         }
 
         .note {
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
-            color: #555;
+            color: #5c5144;
         }
 
         .note a {
-            color: #5563DE;
+            color: #8BC6A9;
             text-decoration: none;
             font-weight: bold;
         }
@@ -100,7 +109,7 @@
             text-decoration: underline;
         }
 
-        /* 🔥 Thêm style hiển thị thông báo */
+        /* 🔥 Hiển thị thông báo */
         .message {
             text-align: center;
             font-weight: bold;
@@ -108,11 +117,11 @@
         }
 
         .error {
-            color: #E53935;
+            color: #D9534F;
         }
 
         .success {
-            color: #43A047;
+            color: #5cb85c;
         }
 
         /* 🔗 Quên mật khẩu */
@@ -124,7 +133,7 @@
 
         .forgot a {
             font-size: 13px;
-            color: #5563DE;
+            color: #A97458; /* nâu nhạt */
             text-decoration: none;
         }
 
@@ -137,7 +146,7 @@
     <div class="container">
         <h2>Đăng nhập hệ thống</h2>
 
-        <%-- 🔥 Hiển thị lỗi hoặc thông báo từ servlet login hoặc register --%>
+        <%-- Hiển thị lỗi/thông báo --%>
         <%
             String error = (String) request.getAttribute("error");
             String message = (String) request.getAttribute("message");

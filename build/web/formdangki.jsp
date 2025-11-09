@@ -14,30 +14,32 @@
     <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            background: linear-gradient(135deg, #E8E3D3, #D6EFE8); /* kem – xanh ngọc nhạt */
             margin: 0;
             padding: 0;
         }
 
         .container {
-            width: 380px;
-            background-color: #fff;
+            width: 400px;
+            background-color: #FAF8F2; /* tông kem nhạt */
             margin: 80px auto;
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            padding: 35px 45px;
+            border-radius: 18px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid #A77B5A; /* nâu gỗ nhẹ */
         }
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #4C7C75; /* xanh ngọc đậm */
             margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #555;
+            margin-bottom: 6px;
+            color: #6B5F51; /* nâu đất nhẹ */
             font-weight: 500;
         }
 
@@ -48,43 +50,45 @@
             width: 100%;
             padding: 10px 12px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #C8C5B9;
             border-radius: 8px;
             font-size: 14px;
-            transition: border-color 0.3s;
+            background-color: #FFFDF8;
+            transition: 0.3s ease;
         }
 
         input:focus {
-            border-color: #5563DE;
+            border-color: #4C7C75;
+            box-shadow: 0 0 5px rgba(76, 124, 117, 0.3);
             outline: none;
         }
 
         input[type="submit"] {
             width: 100%;
             padding: 12px;
-            background-color: #5563DE;
+            background-color: #4C7C75; /* xanh ngọc đậm */
             color: white;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #3949AB;
+            background-color: #3E6B65;
         }
 
         .note {
             text-align: center;
-            margin-top: 10px;
-            color: #777;
+            margin-top: 15px;
+            color: #6B5F51;
             font-size: 14px;
         }
 
         .note a {
-            color: #5563DE;
+            color: #4C7C75;
             text-decoration: none;
             font-weight: bold;
         }
@@ -93,7 +97,7 @@
             text-decoration: underline;
         }
 
-        /* 🔥 Thêm style hiển thị thông báo */
+        /* Thông báo */
         .message {
             text-align: center;
             font-weight: bold;
@@ -101,11 +105,11 @@
         }
 
         .error {
-            color: #E53935;
+            color: #C0392B;
         }
 
         .success {
-            color: #43A047;
+            color: #27AE60;
         }
     </style>
 </head>
@@ -113,7 +117,7 @@
     <div class="container">
         <h2>Đăng ký tài khoản</h2>
 
-        <%-- 🔥 Hiển thị thông báo lỗi/thành công từ servlet --%>
+        <%-- Hiển thị thông báo lỗi/thành công từ servlet --%>
         <%
             String error = (String) request.getAttribute("error");
             String message = (String) request.getAttribute("message");
@@ -124,7 +128,9 @@
             } else if (message != null) { 
         %>
             <div class="message success"><%= message %></div>
-        <% } %>
+        
+         <%} 
+        %>
 
         <form action="register" method="post">
             <label>Tên đăng nhập:</label>
